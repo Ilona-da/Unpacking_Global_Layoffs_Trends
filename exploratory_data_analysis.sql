@@ -1,6 +1,6 @@
 -- EXPLORATORY DATA ANALYSIS
 
-USE baza_test
+USE layoffs_database
 
 SELECT company, MAX(total_laid_off), MAX(percentage_laid_off), MAX(funds_raised_millions) FROM layoffs_staging
 GROUP BY company

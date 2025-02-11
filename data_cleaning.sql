@@ -1,6 +1,6 @@
 -- DATA CLEANING
 
-USE baza_test
+USE layoffs_database
 SELECT * FROM layoffs_data_world
 
 -- STEP 1. Remove duplicates
