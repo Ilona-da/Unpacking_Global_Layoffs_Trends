@@ -128,3 +128,7 @@ SELECT year, month, SUM(total_laid_off) AS total_laid_off,
 FROM layoffs_staging
 GROUP BY year, month
 ORDER BY year, month
+
+-- remove unnecessary columns (prior to importing table to POWER BI)
+ALTER TABLE layoffs_staging
+DROP COLUMN year, month, quarter

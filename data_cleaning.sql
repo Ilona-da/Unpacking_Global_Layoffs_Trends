@@ -157,9 +157,13 @@ ALTER COLUMN percentage_laid_off DECIMAL(5,2)
 ALTER TABLE  layoffs_staging
 ALTER COLUMN funds_raised_millions DECIMAL(10,2)
 
--- STEP 4. Remove unwanted rows/columns
+-- fix for stage column to unify records where stage is unknown
+UPDATE layoffs_staging
+SET stage = 'Unknown'
+WHERE stage = 'NULL'
+
+-- STEP 4. Remove unwanted rows
 
 DELETE
 FROM layoffs_staging
-WHERE total_laid_off = 'NULL' AND
-percentage_laid_off = 'NULL'
+WHERE total_laid_off = 'NULL' AND percentage_laid_off = 'NULL'
