@@ -1,7 +1,7 @@
 # Layoffs Data Analysis
 
 ## Project Overview
-This project focuses on cleaning and analyzing a dataset related to global layoffs. The goal is to prepare quality data for further visualization and business insights using Power BI.
+This project focuses on cleaning and analyzing a dataset related to global layoffs between March 2020 and March 2023. The goal is to prepare quality data for further visualization and insights using Power BI.
 
 ## Dataset
 The dataset contains information about layoffs in various companies, including:
@@ -16,11 +16,11 @@ The dataset contains information about layoffs in various companies, including:
 ## Data Cleaning Process
 The data cleaning process was conducted using **Microsoft SQL Server** and included the following steps:
 
-1. Removing Duplicates
-2. Standardizing Data
-3. Handling NULL and Blank Values
-4. Adjusting Data Types
-5. Removing Unwanted Rows
+1. Removing duplicates
+2. Standardizing data
+3. Handling NULL and blank values
+4. Adjusting data types
+5. Removing unwanted records
 
 ## Exploratory Data Analysis (EDA)
 After cleaning, an exploratory data analysis (EDA) was performed to identify key trends and patterns in the dataset. This included mainly:
@@ -36,6 +36,7 @@ The next step in this project is to create dashboards in Power BI to visualize k
 - **Power BI** (upcoming) – Data visualization and dashboard creation
 
 ## Repository Structure
+- `layoffs_data.csv` - source data file
 - `data_cleaning.sql` – SQL script for data cleaning
 - `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
 - `README.md` – Project documentation
