@@ -30,11 +30,22 @@ DELETE
 FROM layoffs_staging
 WHERE date = '1900-01-01'
 
--- identify companies that laid off all employees
-SELECT *
+-- identify and count companies that laid off all employees
+SELECT company, percentage_laid_off
 FROM layoffs_staging
 WHERE percentage_laid_off = 1 AND total_laid_off IS NOT NULL
 ORDER BY total_laid_off DESC
+
+SELECT COUNT(DISTINCT company)
+FROM layoffs_staging
+WHERE percentage_laid_off = 1
+
+-- identify industries in which those companies operate
+SELECT industry, COUNT(company) AS number_of_bankrupt_companies
+FROM layoffs_staging
+WHERE percentage_laid_off = 1
+GROUP BY industry
+ORDER BY number_of_bankrupt_companies DESC
 
 -- check the timeline of the dataset
 SELECT MIN(date), MAX(date)
