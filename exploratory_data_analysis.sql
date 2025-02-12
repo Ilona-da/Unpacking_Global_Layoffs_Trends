@@ -33,7 +33,7 @@ WHERE date = '1900-01-01'
 -- identify and count companies that laid off all employees
 SELECT company, percentage_laid_off
 FROM layoffs_staging
-WHERE percentage_laid_off = 1 AND total_laid_off IS NOT NULL
+WHERE percentage_laid_off = 1
 ORDER BY total_laid_off DESC
 
 SELECT COUNT(DISTINCT company)
