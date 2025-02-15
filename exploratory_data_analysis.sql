@@ -40,6 +40,21 @@ SELECT COUNT(DISTINCT company)
 FROM layoffs_staging
 WHERE percentage_laid_off = 1
 
+-- top 100 companies (with > 100 employees) with 100% employees laid off
+SELECT TOP 100 * 
+FROM layoffs_staging 
+WHERE percentage_laid_off = 1 AND total_employees > 100 
+ORDER BY total_employees DESC
+
+-- top 10 companies with biggest percentage of employees laid off (but less than 100%)
+SELECT TOP 10 
+    company, 
+    AVG(percentage_laid_off) AS avg_percentage_laid_off
+FROM layoffs_staging  
+GROUP BY company  
+HAVING AVG(percentage_laid_off) <> 1  
+ORDER BY avg_percentage_laid_off DESC
+
 -- identify industries in which those companies operate
 SELECT industry, COUNT(company) AS number_of_bankrupt_companies
 FROM layoffs_staging
@@ -139,6 +154,28 @@ SELECT year, month, SUM(total_laid_off) AS total_laid_off,
 FROM layoffs_staging
 GROUP BY year, month
 ORDER BY year, month
+
+-- number of blanks in key columns
+SELECT COUNT(*) AS blanks_in_total_laid_off
+FROM layoffs_staging
+WHERE total_laid_off IS NULL
+
+SELECT COUNT(*) AS blanks_in_percentage_laid_off
+FROM layoffs_staging
+WHERE percentage_laid_off IS NULL
+
+-- companies that have the most blanks in key columns
+SELECT company, COUNT(*) AS null_count
+FROM layoffs_staging
+WHERE total_laid_off IS NULL
+GROUP BY company
+ORDER BY null_count DESC
+
+SELECT company, COUNT(*) AS null_count
+FROM layoffs_staging
+WHERE percentage_laid_off IS NULL
+GROUP BY company
+ORDER BY null_count DESC
 
 -- remove unnecessary columns (prior to importing table to POWER BI)
 ALTER TABLE layoffs_staging
