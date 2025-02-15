@@ -47,9 +47,7 @@ WHERE percentage_laid_off = 1 AND total_employees > 100
 ORDER BY total_employees DESC
 
 -- top 10 companies with biggest percentage of employees laid off (but less than 100%)
-SELECT TOP 10 
-    company, 
-    AVG(percentage_laid_off) AS avg_percentage_laid_off
+SELECT TOP 10 company, AVG(percentage_laid_off) AS avg_percentage_laid_off
 FROM layoffs_staging  
 GROUP BY company  
 HAVING AVG(percentage_laid_off) <> 1  
