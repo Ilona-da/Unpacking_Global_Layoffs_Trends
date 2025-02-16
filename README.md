@@ -62,7 +62,7 @@ While these missing values did not significantly impact major trends, they shoul
 - `exploratory_data_analysis.sql` - SQL queries for exploratory data analysis
 - `layoffs_dashboard_power_bi.pbix` - file with fully interactive dashboard
 - `layoffs_dashboard_power_bi.pdf` - static file for quick dashborad overview
-- `README.md` – Project documentation
+- `README.md` - Project documentation
 
 This project was conducted as part of my portfolio to demonstrate SQL data cleaning, exploratory analysis, and visualization skills.
 
