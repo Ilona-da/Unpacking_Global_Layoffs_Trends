@@ -31,22 +31,22 @@ After cleaning, an exploratory data analysis (EDA) was performed to identify key
 ## Power BI Visualization - key findings
 Last step in this project was to create dashboard in Power BI to visualize key insights. This includes charts and KPIs highlighting trends in layoffs across industries, countries, and time periods. The repository includes a .pdf file with a static dashboard preview and a .pbix file for an interactive experience.
 
-# Layoff Trends Over Time
+### Layoff Trends Over Time
 The largest waves of layoffs occurred in 2020, peaking in May and July, followed by another significant wave in November. The highest peak was observed at the beginning of 2023.
 Across all three years, layoffs were most frequent in the first and last quarters, particularly in January and November.
-# Most Affected Industries
+### Most Affected Industries
 The industries most affected by layoffs across the entire period were retail, consumer, transportation, and finance. In 2020, the transportation and travel industries were hit hardest, likely due to the COVID-19 pandemic and global lockdowns. In 2023, which saw the highest number of laid-off employees, layoffs were spread across various industries rather than concentrated in a few.
-# Companies with the Highest Layoffs
+### Companies with the Highest Layoffs
 Amazon had the highest number of layoffs in absolute terms, though this represented only 3% of its workforce.
 Many smaller companies shut down entirely, with 115 companies ceasing operations, the majority in late 2022.
 On average, 25% of employees were laid off across all analyzed companies in this period. Almost half of the analyzed companies laid off no more than 20% of their workforce, while around one-third laid off between 20-40%.
-# Company Size and Funding Stage
+### Company Size and Funding Stage
 Layoffs were most severe among early-stage companies (Seed) and smaller firms (Stages A-C) in terms of the number of companies affected. Larger, more financially stable companies, particularly those in the Acquired and Post-IPO stages, were less affected in terms of the proportion of employees laid off. 
 However, in absolute numbers, Post-IPO companies saw the highest total number of layoffs.
-# Geographic Distribution
+### Geographic Distribution
 The United States experienced the highest number of layoffs—significantly more than any other country.
 
-# Data Completeness and Limitations:
+## Data Completeness and Limitations:
 Some columns contained missing values:
 378 missing values in total_laid_off
 423 missing values in percentage_laid_off
