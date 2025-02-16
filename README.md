@@ -64,7 +64,6 @@ While these missing values did not significantly impact major trends, they shoul
 - `layoffs_dashboard_power_bi.pdf` - static file for quick dashborad overview
 - `README.md` – Project documentation
 
-## Author
 This project was conducted as part of my portfolio to demonstrate SQL data cleaning, exploratory analysis, and visualization skills.
 
 
