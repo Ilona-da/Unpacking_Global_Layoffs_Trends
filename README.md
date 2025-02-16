@@ -58,8 +58,8 @@ While these missing values did not significantly impact major trends, they shoul
 
 ## Repository Structure
 - `layoffs_data.csv` - source data file
-- `data_cleaning.sql` – SQL script for data cleaning
-- `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
+- `data_cleaning.sql` - SQL script for data cleaning
+- `exploratory_data_analysis.sql` - SQL queries for exploratory data analysis
 - `layoffs_dashboard_power_bi.pbix` - file with fully interactive dashboard
 - `layoffs_dashboard_power_bi.pdf` - static file for quick dashborad overview
 - `README.md` – Project documentation
