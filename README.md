@@ -46,10 +46,11 @@ However, in absolute numbers, Post-IPO companies saw the highest total number of
 ### Geographic Distribution
 The United States experienced the highest number of layoffs—significantly more than any other country.
 
-## Data Completeness and Limitations:
+## Data Completeness and Limitations
 Some columns contained missing values:
-378 missing values in total_laid_off
-423 missing values in percentage_laid_off
+- 378 blanks in total_laid_off
+- 423 blanks in percentage_laid_off
+
 While these missing values did not significantly impact major trends, they should still be considered when interpreting the results. The dataset is sourced from third-party data, meaning that additional validation or direct access to company HR records could improve accuracy in a real-world business setting.
 
 ## Tools Used
