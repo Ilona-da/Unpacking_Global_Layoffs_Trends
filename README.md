@@ -28,7 +28,7 @@ After cleaning, an exploratory data analysis (EDA) was performed to identify key
 - Identifying companies and industries most affected by layoffs
 - Examining geographic distribution of layoffs
 
-## Power BI Visualization - key findings
+## Power BI Visualization and key findings
 Last step in this project was to create dashboard in Power BI to visualize key insights. This includes charts and KPIs highlighting trends in layoffs across industries, countries, and time periods. The repository includes a .pdf file with a static dashboard preview and a .pbix file for an interactive experience.
 
 ### Layoff Trends Over Time
