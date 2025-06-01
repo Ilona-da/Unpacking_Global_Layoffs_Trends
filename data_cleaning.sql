@@ -1,169 +1,198 @@
--- DATA CLEANING
+/* DATA CLEANING */
 
-USE layoffs_database
-SELECT * FROM layoffs_data_world
+USE layoffs_database;
 
--- STEP 1. Remove duplicates
+SELECT * 
+FROM layoffs_data_world;
 
--- create staging table to avoid removing raw data
-SELECT * INTO layoffs_staging FROM layoffs_data_world
+/* STEP 1. Remove duplicates */
 
--- identify duplicate records based on key columns and remove them
+/* create staging table to avoid removing raw data */
+SELECT * 
+INTO layoffs_staging 
+FROM layoffs_data_world;
+
+/* identify duplicate records based on key columns and remove them */
 WITH duplicates AS (
-	SELECT *, 
-	ROW_NUMBER() OVER(PARTITION BY company, location, industry, total_laid_off, percentage_laid_off, date, stage, country, funds_raised_millions ORDER BY company) AS row_num
+	SELECT *,
+	   ROW_NUMBER() OVER(
+			PARTITION BY 
+				company
+				,location
+				,industry
+				,total_laid_off
+	         ,percentage_laid_off
+				,date
+				,stage
+				,country
+				,funds_raised_millions 
+	      ORDER BY company
+			) AS row_num
 	FROM layoffs_staging
 )
+DELETE FROM layoffs_staging
+WHERE EXISTS (
+	SELECT company
+	FROM duplicates d
+	WHERE d.row_num > 1 AND d.company = layoffs_staging.company
+);
 
-SELECT * FROM duplicates
-WHERE row_num > 1
+/* STEP 2. Standardize the data */
 
-DELETE FROM duplicates
-WHERE company IN (
-    SELECT company FROM duplicates WHERE row_num > 1
-)
+SELECT DISTINCT company 
+FROM layoffs_staging;
 
--- STEP 2. Standardize the data
+SELECT * 
+FROM layoffs_staging 
+WHERE company = 'Oda';
 
-SELECT DISTINCT company FROM layoffs_staging
-
-SELECT * FROM layoffs_staging WHERE company = 'Oda'
-
--- one record needs to be updated (country name)
+/* one record needs to be updated (country name) */
 UPDATE layoffs_staging
 SET country = 'Norway'
-WHERE company = 'Oda' AND funds_raised_millions = 377
+WHERE company = 'Oda' AND funds_raised_millions = 377;
 
--- trim unwanted spaces
+/* trim unwanted spaces */
 UPDATE layoffs_staging
-SET company = TRIM(company)
+SET company = TRIM(company);
 
 SELECT DISTINCT industry
 FROM layoffs_staging
-ORDER BY industry
+ORDER BY industry;
 
 SELECT DISTINCT industry
 FROM layoffs_staging
-WHERE industry LIKE('Crypto%')
+WHERE industry LIKE('Crypto%');
 
--- unify industry names
+/* unify industry names */
 UPDATE layoffs_staging
 SET industry = 'Crypto'
-WHERE industry LIKE 'Crypto%'
+WHERE industry LIKE 'Crypto%';
 
-SELECT * FROM layoffs_staging WHERE country LIKE 'United States%'
+SELECT * 
+FROM layoffs_staging 
+WHERE country LIKE 'United States%';
 
--- remove trailing dots from country names
-SELECT DISTINCT country, TRIM(TRAILING '.' FROM country)
+/* remove trailing dots from country names */
+SELECT 
+	DISTINCT country
+	,TRIM(TRAILING '.' FROM country)
 FROM layoffs_staging
-ORDER BY 1
+ORDER BY 1;
 
 UPDATE layoffs_staging
 SET country = TRIM(TRAILING '.' FROM country)
-WHERE country LIKE 'United States%'
+WHERE country LIKE 'United States%';
 
--- fix date types (nvarchar instead of date)
-SELECT DISTINCT date, CONVERT(DATE, LTRIM(RTRIM(date)))
-FROM layoffs_staging
+/* fix date types (nvarchar instead of date) */
+SELECT 
+	DISTINCT date
+	,CONVERT(DATE, LTRIM(RTRIM(date)))
+FROM layoffs_staging;
 
--- check up problem with converting date column format
-SELECT * FROM layoffs_staging 
-WHERE TRY_CONVERT(DATE, LTRIM(RTRIM(date))) IS NULL
-AND date IS NOT NULL
+/* check up problem with converting date column format */
+SELECT * 
+FROM layoffs_staging 
+WHERE TRY_CONVERT(DATE, LTRIM(RTRIM(date))) IS NULL AND date IS NOT NULL;
 
--- looks like the is string NULL instead of proper NULL value in one row
-SELECT date, COUNT(*)
+/* looks like the is string NULL instead of proper NULL value in one row */
+SELECT 
+	date
+	,COUNT(*)
 FROM layoffs_staging
 WHERE date = 'NULL'
-GROUP BY date
+GROUP BY date;
 
--- for now change that to real NULL value for the whole column date type conversion to work (unfortunately in this column NULL values are not allowed)
+/* for now change that to real NULL value for the whole column date type conversion to work 
+(unfortunately in this column NULL values are not allowed) */
 UPDATE layoffs_staging
 SET date = ''
-WHERE date = 'NULL'
+WHERE date = 'NULL';
 
 ALTER TABLE layoffs_staging
-ALTER COLUMN date DATE NULL
+ALTER COLUMN date DATE NULL;
 
 UPDATE layoffs_staging
-SET date = CONVERT(DATE, LTRIM(RTRIM(date)))
+SET date = CONVERT(DATE, LTRIM(RTRIM(date)));
 
 ALTER TABLE layoffs_staging
-ALTER COLUMN date DATE
+ALTER COLUMN date DATE;
 
--- 3. Handle NULL/blank values (many NULL values are 'NULL' values here because of source file)
+/* STEP 3. Handle NULL/blank values (many NULL values are 'NULL' values here because of source file) */
 
--- identify rows useless for analysis
+/* identify rows useless for analysis */
 SELECT * FROM layoffs_staging
-WHERE total_laid_off = 'NULL' AND
-percentage_laid_off = 'NULL'
+WHERE total_laid_off = 'NULL' AND percentage_laid_off = 'NULL';
 
--- convert 'NULL' and empty strings to actual NULL values in the industry column
+/* convert 'NULL' and empty strings to actual NULL values in the industry column */
 SELECT *
 FROM layoffs_staging
-WHERE industry = '' OR industry = 'NULL' OR industry IS NULL
+WHERE industry = '' OR industry = 'NULL' OR industry IS NULL;
 
-SELECT * FROM layoffs_staging WHERE company = 'Airbnb'
+SELECT * 
+FROM layoffs_staging 
+WHERE company = 'Airbnb';
 
 UPDATE layoffs_staging
 SET industry = NULL
-WHERE industry = 'NULL' OR industry = ''
+WHERE industry = 'NULL' OR industry = '';
 
--- fill missing industry values based on the same company
-SELECT * FROM layoffs_staging t1
+/* fill missing industry values based on the same company */
+SELECT * 
+FROM layoffs_staging t1
 JOIN layoffs_staging t2
 	ON t1.company = t2.company 
-	WHERE t1.industry IS NULL
-	AND t2.industry IS NOT NULL
+	WHERE t1.industry IS NULL AND t2.industry IS NOT NULL;
 
 UPDATE t1
 SET t1.industry = t2.industry
 FROM layoffs_staging t1
-JOIN layoffs_staging t2
-    ON t1.company = t2.company
-WHERE t1.industry IS NULL
-  AND t2.industry IS NOT NULL
+JOIN layoffs_staging t2 
+	ON t1.company = t2.company
+	WHERE t1.industry IS NULL AND t2.industry IS NOT NULL;
 
-SELECT * FROM layoffs_staging
-WHERE industry IS NULL
+SELECT * 
+FROM layoffs_staging
+WHERE industry IS NULL;
 
--- only one company left with NULL value in the industry column
-SELECT * FROM layoffs_staging WHERE company = 'Bally''s Interactive'
+/* only one company left with NULL value in the industry column */
+SELECT * 
+FROM layoffs_staging 
+WHERE company = 'Bally''s Interactive';
 
--- change 'NULL' to real NULL values
+/* change 'NULL' to real NULL values */
 UPDATE layoffs_staging
 SET total_laid_off = NULL
-WHERE total_laid_off = 'NULL' OR total_laid_off = ''
+WHERE total_laid_off = 'NULL' OR total_laid_off = '';
 
 UPDATE layoffs_staging
 SET percentage_laid_off = NULL
-WHERE percentage_laid_off = 'NULL' OR percentage_laid_off = ''
+WHERE percentage_laid_off = 'NULL' OR percentage_laid_off = '';
 
 UPDATE layoffs_staging
 SET stage = NULL
-WHERE stage = 'NULL' OR stage = ''
+WHERE stage = 'NULL' OR stage = '';
 
 UPDATE layoffs_staging
 SET funds_raised_millions = NULL
-WHERE funds_raised_millions = 'NULL' OR funds_raised_millions = ''
+WHERE funds_raised_millions = 'NULL' OR funds_raised_millions = '';
 
--- other data type changes
+/* other data type changes */
 ALTER TABLE  layoffs_staging
-ALTER COLUMN total_laid_off INT
+ALTER COLUMN total_laid_off INT;
 
 ALTER TABLE layoffs_staging  
-ALTER COLUMN percentage_laid_off DECIMAL(5,2)
+ALTER COLUMN percentage_laid_off DECIMAL(5,2);
 
 ALTER TABLE  layoffs_staging
-ALTER COLUMN funds_raised_millions DECIMAL(10,2)
+ALTER COLUMN funds_raised_millions DECIMAL(10,2);
 
--- fix for stage column to unify records where stage is unknown
+/* fix for stage column to unify records where stage is unknown */
 UPDATE layoffs_staging
 SET stage = 'Unknown'
-WHERE stage = 'NULL'
+WHERE stage = 'NULL';
 
--- STEP 4. Remove unwanted rows
+/* STEP 4. Remove unwanted rows */
 
 DELETE
 FROM layoffs_staging
-WHERE total_laid_off = 'NULL' AND percentage_laid_off = 'NULL'
+WHERE total_laid_off = 'NULL' AND percentage_laid_off = 'NULL';
