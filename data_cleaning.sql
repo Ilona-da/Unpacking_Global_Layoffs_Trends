@@ -18,14 +18,14 @@ WITH duplicates AS (
 	   ROW_NUMBER() OVER(
 			PARTITION BY 
 				company
-				,location
-				,industry
-				,total_laid_off
-	         ,percentage_laid_off
-				,date
-				,stage
-				,country
-				,funds_raised_millions 
+				, location
+				, industry
+				, total_laid_off
+	         , percentage_laid_off
+				, date
+				, stage
+				, country
+				, funds_raised_millions 
 	      ORDER BY company
 			) AS row_num
 	FROM layoffs_staging
@@ -73,9 +73,7 @@ FROM layoffs_staging
 WHERE country LIKE 'United States%';
 
 /* remove trailing dots from country names */
-SELECT 
-	DISTINCT country
-	,TRIM(TRAILING '.' FROM country)
+SELECT DISTINCT country, TRIM(TRAILING '.' FROM country)
 FROM layoffs_staging
 ORDER BY 1;
 
@@ -84,9 +82,7 @@ SET country = TRIM(TRAILING '.' FROM country)
 WHERE country LIKE 'United States%';
 
 /* fix date types (nvarchar instead of date) */
-SELECT 
-	DISTINCT date
-	,CONVERT(DATE, LTRIM(RTRIM(date)))
+SELECT DISTINCT date, CONVERT(DATE, LTRIM(RTRIM(date)))
 FROM layoffs_staging;
 
 /* check up problem with converting date column format */
@@ -95,9 +91,7 @@ FROM layoffs_staging
 WHERE TRY_CONVERT(DATE, LTRIM(RTRIM(date))) IS NULL AND date IS NOT NULL;
 
 /* looks like the is string NULL instead of proper NULL value in one row */
-SELECT 
-	date
-	,COUNT(*)
+SELECT date, COUNT(*)
 FROM layoffs_staging
 WHERE date = 'NULL'
 GROUP BY date;
