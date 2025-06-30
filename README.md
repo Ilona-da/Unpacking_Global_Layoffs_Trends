@@ -58,12 +58,16 @@ While these missing values did not significantly impact major trends, they shoul
 - **Power BI** (Desktop version) – Data visualization and dashboard creation
 
 ## Repository Structure
-- `layoffs_data.csv` - source data file
-- `data_cleaning.sql` - SQL script for data cleaning
-- `exploratory_data_analysis.sql` - SQL queries for exploratory data analysis
-- `layoffs_dashboard_power_bi.pbix` - file with fully interactive dashboard
-- `layoffs_dashboard_power_bi.pdf` - static file for quick dashborad overview
-- `README.md` - Project documentation
+- `layoffs_data.csv` – source data file (located in the root directory)
+- `sql/` – folder containing SQL scripts:
+  - `data_cleaning.sql` – SQL script for data cleaning
+  - `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
+- `dashboard/` – folder with Power BI dashboard file:
+  - `layoffs_dashboard_power_bi.pbix` – fully interactive dashboard file
+- `assets/` – folder containing supporting materials:
+  - `layoffs_dashboard_power_bi.pdf` – static file for quick dashboard overview
+- `README.md` – project documentation (located in the root directory)
 
 This project was conducted as part of my portfolio to demonstrate SQL data cleaning, exploratory analysis, and visualization skills.
+
 
