@@ -1,11 +1,13 @@
-/* DATA CLEANING */
+/* DATA CLEANING PROCESS */
 
 USE layoffs_database;
 
 SELECT * 
 FROM layoffs_data_world;
 
-/* STEP 1. Remove duplicates */
+/* =====================================================
+STEP 1: Remove duplicates
+===================================================== */
 
 /* create staging table to avoid removing raw data */
 SELECT * 
@@ -37,7 +39,9 @@ WHERE EXISTS (
 	WHERE d.row_num > 1 AND d.company = layoffs_staging.company
 );
 
-/* STEP 2. Standardize the data */
+/* =====================================================
+STEP 2: Standardize the data 
+===================================================== */
 
 SELECT DISTINCT company 
 FROM layoffs_staging;
@@ -111,7 +115,9 @@ SET date = CONVERT(DATE, LTRIM(RTRIM(date)));
 ALTER TABLE layoffs_staging
 ALTER COLUMN date DATE;
 
-/* STEP 3. Handle NULL/blank values (many NULL values are 'NULL' values here because of source file) */
+/* =====================================================
+STEP 3: Handle NULL/blank values (many NULL values are 'NULL' values here because of source file)
+======================================================== */
 
 /* identify rows useless for analysis */
 SELECT * FROM layoffs_staging
@@ -185,7 +191,9 @@ UPDATE layoffs_staging
 SET stage = 'Unknown'
 WHERE stage = 'NULL';
 
-/* STEP 4. Remove unwanted rows */
+/* =====================================================
+STEP 4: Remove unwanted rows
+===================================================== */
 
 DELETE
 FROM layoffs_staging
