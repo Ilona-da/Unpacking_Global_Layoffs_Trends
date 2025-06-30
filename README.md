@@ -29,7 +29,7 @@ After cleaning, an exploratory data analysis (EDA) was performed to identify key
 - Examining geographic distribution of layoffs
 
 ## Power BI Visualization and key findings
-Last step in this project was to create dashboard in Power BI to visualize key insights. This includes charts and KPIs highlighting trends in layoffs across industries, countries, and time periods. The repository includes a .pdf file with a static dashboard preview and a .pbix file for an interactive experience.
+Last step in this project was to create simple dashboard in Power BI to visualize key insights. This includes charts and KPIs highlighting trends in layoffs across industries, countries, and time periods. The repository includes a .pdf file with a static dashboard preview and a .pbix file for an interactive experience.
 
 ### Layoff Trends Over Time
 The largest waves of layoffs occurred in 2020, peaking in May and July, followed by another significant wave in November. The highest peak was observed at the beginning of 2023.
@@ -58,12 +58,16 @@ While these missing values did not significantly impact major trends, they shoul
 - **Power BI** (Desktop version) – Data visualization and dashboard creation
 
 ## Repository Structure
-- `layoffs_data.csv` - source data file
-- `data_cleaning.sql` - SQL script for data cleaning
-- `exploratory_data_analysis.sql` - SQL queries for exploratory data analysis
-- `layoffs_dashboard_power_bi.pbix` - file with fully interactive dashboard
-- `layoffs_dashboard_power_bi.pdf` - static file for quick dashborad overview
-- `README.md` - Project documentation
+- `layoffs_data.csv` – source data file (located in the root directory)
+- `sql/` – folder containing SQL scripts:
+  - `data_cleaning.sql` – SQL script for data cleaning
+  - `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
+- `dashboard/` – folder with Power BI dashboard file:
+  - `layoffs_dashboard_power_bi.pbix` – fully interactive dashboard file
+- `assets/` – folder containing supporting materials:
+  - `layoffs_dashboard_power_bi.pdf` – static file for quick dashboard overview
+- `README.md` – project documentation (located in the root directory)
 
 This project was conducted as part of my portfolio to demonstrate SQL data cleaning, exploratory analysis, and visualization skills.
+
 
