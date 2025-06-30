@@ -181,9 +181,7 @@ GROUP BY year, month
 ORDER BY year, month;
 
 /* average layoffs per month */
-SELECT 
-	month
-	, AVG(total_laid_off) AS avg_laid_off
+SELECT month, AVG(total_laid_off) AS avg_laid_off
 FROM layoffs_staging
 GROUP BY month
 ORDER BY month;
