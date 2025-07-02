@@ -59,14 +59,14 @@ While these missing values did not significantly impact major trends, they shoul
 
 ## Repository Structure
 - `data/` – folder containing raw dataset:
-  - `layoffs_data.csv` – source data file
+  - `data_raw.csv` – source data file
 - `sql/` – folder containing SQL scripts:
   - `data_cleaning.sql` – SQL script for data cleaning
   - `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
 - `powerbi/` – folder with Power BI dashboard file:
-  - `layoffs_dashboard_power_bi.pbix` – fully interactive dashboard file
-  - `layoffs_dashboard_power_bi.pdf` – static file for quick dashboard overview
-- `README.md` – project documentation (located in the root directory)
+  - `dashboard_power_bi.pbix` – fully interactive dashboard file
+  - `dashboard_power_bi.pdf` – static file for quick dashboard overview
+- `README.md` – project documentation
 
 This project was conducted as part of my portfolio to demonstrate SQL data cleaning, exploratory analysis, and visualization skills.
 
