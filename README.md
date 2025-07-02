@@ -58,13 +58,13 @@ While these missing values did not significantly impact major trends, they shoul
 - **Power BI** (Desktop version) – Data visualization and dashboard creation
 
 ## Repository Structure
-- `layoffs_data.csv` – source data file (located in the root directory)
+- `data/` – folder containing raw dataset:
+  - `layoffs_data.csv` – source data file
 - `sql/` – folder containing SQL scripts:
   - `data_cleaning.sql` – SQL script for data cleaning
   - `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
-- `dashboard/` – folder with Power BI dashboard file:
+- `powerbi/` – folder with Power BI dashboard file:
   - `layoffs_dashboard_power_bi.pbix` – fully interactive dashboard file
-- `assets/` – folder containing supporting materials:
   - `layoffs_dashboard_power_bi.pdf` – static file for quick dashboard overview
 - `README.md` – project documentation (located in the root directory)
 
