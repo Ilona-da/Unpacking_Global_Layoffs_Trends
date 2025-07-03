@@ -46,6 +46,12 @@ However, in absolute numbers, Post-IPO companies saw the highest total number of
 ### Geographic Distribution
 The United States experienced the highest number of layoffs, significantly more than any other country.
 
+Dashboard preview:
+
+<p style="text align: center; margin top: 20px; margin-bottom: 20px;">
+  <img src="powerbi/dashboard-preview.png" alt="dashboard preview" style="width: 100%; height: auto;" />
+</p>
+
 ## Data Completeness and Limitations
 Some columns contained missing values:
 - 378 blanks in total_laid_off
