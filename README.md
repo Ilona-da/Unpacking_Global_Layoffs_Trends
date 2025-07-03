@@ -1,4 +1,4 @@
-# Layoffs Data Analysis
+# Global Layoffs Data Analysis
 
 ## Project Overview
 This simple project focuses on cleaning and analyzing a dataset related to global layoffs between March 2020 and March 2023. The dataset includes layoff data from 1,622 companies. The goal was to analyze periods of significant layoffs and identify the industries, companies, and countries most affected worldwide. Additional correlations between layoffs, company size, and funding stage were also examined. Key findings and insights were visualized using Power BI.
