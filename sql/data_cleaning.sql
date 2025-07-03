@@ -23,7 +23,7 @@ WITH duplicates AS (
 				, location
 				, industry
 				, total_laid_off
-	         , percentage_laid_off
+				, percentage_laid_off
 				, date
 				, stage
 				, country
