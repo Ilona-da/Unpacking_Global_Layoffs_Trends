@@ -21,7 +21,7 @@ ADD
 UPDATE layoffs_staging
 SET 
 	year = YEAR(date)
-   , month = MONTH(date)
+	, month = MONTH(date)
 	, quarter = DATEPART(QUARTER, date)
 WHERE date IS NOT NULL;
 
@@ -126,7 +126,7 @@ FROM running_total_cte;
 /* layoffs per company */
 SELECT 
 	company
-	,SUM(total_laid_off) AS sum_laid_off
+	, SUM(total_laid_off) AS sum_laid_off
 FROM layoffs_staging
 WHERE total_laid_off IS NOT NULL
 GROUP BY company
