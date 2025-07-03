@@ -44,7 +44,7 @@ On average, 25% of employees were laid off across all analyzed companies in this
 Layoffs were most severe among early-stage companies (Seed) and smaller firms (Stages A-C) in terms of the number of companies affected. Larger, more financially stable companies, particularly those in the Acquired and Post-IPO stages, were less affected in terms of the proportion of employees laid off. 
 However, in absolute numbers, Post-IPO companies saw the highest total number of layoffs.
 ### Geographic Distribution
-The United States experienced the highest number of layoffs—significantly more than any other country.
+The United States experienced the highest number of layoffs, significantly more than any other country.
 
 ## Data Completeness and Limitations
 Some columns contained missing values:
@@ -54,20 +54,17 @@ Some columns contained missing values:
 While these missing values did not significantly impact major trends, they should still be considered when interpreting the results. The dataset is sourced from third-party data, meaning that additional validation or direct access to company HR records could improve accuracy in a real-world business setting.
 
 ## Tools Used
-- **Microsoft SQL Server** – Data cleaning and preparation
-- **Power BI** (Desktop version) – Data visualization and dashboard creation
+- **Microsoft SQL Server** - Data cleaning and preparation
+- **Power BI** (Desktop version) - Data visualization and dashboard creation
 
 ## Repository Structure
-- `data/` – folder containing raw dataset:
-  - `raw_data.csv` – source data file
-- `sql/` – folder containing SQL scripts:
-  - `data_cleaning.sql` – SQL script for data cleaning
-  - `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
+- `data/` - folder containing raw dataset:
+  - `raw_data.csv` - source data file
+- `sql/` - folder containing SQL scripts:
+  - `data_cleaning.sql` - SQL script for data cleaning
+  - `exploratory_data_analysis.sql` - SQL queries for exploratory data analysis
 - `powerbi/` – folder with Power BI dashboard file:
-  - `dashboard.pbix` – fully interactive dashboard file
-  - `dashboard.pdf` – static file for quick dashboard overview
-- `README.md` – project documentation
-
-This project was conducted as part of my portfolio to demonstrate SQL data cleaning, exploratory analysis, and visualization skills.
-
+  - `dashboard.pbix` - fully interactive dashboard file
+  - `dashboard.pdf` - static file for quick dashboard overview
+- `README.md` - project documentation
 
