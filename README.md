@@ -29,7 +29,15 @@ After cleaning, an exploratory data analysis (EDA) was performed to identify key
 - Examining geographic distribution of layoffs
 
 ## Power BI visualization and key findings
-Last step in this project was to create simple dashboard in Power BI to visualize key insights. This includes charts and KPIs highlighting trends in layoffs across industries, countries, and time periods. The repository includes a .pdf file with a static dashboard preview and a .pbix file for an interactive experience.
+Last step in this project was to create simple dashboard in Power BI to visualize key insights. This includes charts and KPIs highlighting trends in layoffs across industries, countries, and time periods. 
+
+The repository includes a .pdf file containing a static preview of the dashboard, as well as a .pbix file for the full interactive experience.
+
+Below is a quick static preview of the dashboard:
+
+<p style="text align: center; margin top: 20px; margin-bottom: 20px;">
+  <img src="powerbi/preview.png" alt="dashboard preview" style="width: 100%; height: auto;" />
+</p>
 
 ### Layoff Trends Over Time
 The largest waves of layoffs occurred in 2020, peaking in May and July, followed by another significant wave in November. The highest peak was observed at the beginning of 2023.
@@ -45,12 +53,6 @@ Layoffs were most severe among early-stage companies (Seed) and smaller firms (S
 However, in absolute numbers, Post-IPO companies saw the highest total number of layoffs.
 ### Geographic Distribution
 The United States experienced the highest number of layoffs, significantly more than any other country.
-
-Dashboard preview:
-
-<p style="text align: center; margin top: 20px; margin-bottom: 20px;">
-  <img src="powerbi/dashboard-preview.png" alt="dashboard preview" style="width: 100%; height: auto;" />
-</p>
 
 ## Data Completeness and Limitations
 Some columns contained missing values:
