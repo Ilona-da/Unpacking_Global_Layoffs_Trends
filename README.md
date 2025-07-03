@@ -59,7 +59,7 @@ While these missing values did not significantly impact major trends, they shoul
 
 ## Repository Structure
 - `data/` – folder containing raw dataset:
-  - `dataset_raw.csv` – source data file
+  - `raw_data.csv` – source data file
 - `sql/` – folder containing SQL scripts:
   - `data_cleaning.sql` – SQL script for data cleaning
   - `exploratory_data_analysis.sql` – SQL queries for exploratory data analysis
