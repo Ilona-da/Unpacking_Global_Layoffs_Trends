@@ -1,35 +1,24 @@
 # Global Layoffs Data Analysis
 
-## Project Overview
-This simple project focuses on cleaning and analyzing a dataset related to global layoffs between March 2020 and March 2023. The dataset includes layoff data from 1,622 companies. The goal was to analyze periods of significant layoffs and identify the industries, companies, and countries most affected worldwide. Additional correlations between layoffs, company size, and funding stage were also examined. Key findings and insights were visualized using Power BI.
+## Project overview  
+This project explores global layoffs between March 2020 and March 2023, covering data from 1,622 companies worldwide. The main goal was to understand when the biggest waves of layoffs happened and which industries, companies, and countries were hit the hardest. I also looked at how layoffs relate to company size and funding stage. The key insights are presented in a clear, interactive Power BI dashboard.
 
-## Dataset
-The dataset contains information about layoffs in various companies, including:
-- Company name
-- Industry
-- Location
-- Number of employees laid off
-- Percentage of workforce affected
-- Date of layoffs
-- Investment funding (in millions)
+## Data preparation (SQL)
+To ensure the data was clean and reliable, I performed several preprocessing steps:
+- Removed duplicates  
+- Standardized data formats  
+- Handled missing values where possible  
+- Adjusted data types  
+- Filtered out irrelevant records  
 
-## Data Cleaning Process
-The data cleaning process was conducted using **Microsoft SQL Server** and included the following steps:
+## Exploratory Data Analysis (SQL)  
+After cleaning, I conducted exploratory data analysis (EDA) to identify important trends and patterns, including mainly:
+- Layoff trends over time  
+- Most affected companies and industries  
+- Geographic distribution of layoffs  
 
-1. Removing duplicates
-2. Standardizing data
-3. Handling NULL and blank values
-4. Adjusting data types
-5. Removing unwanted records
-
-## Exploratory Data Analysis (EDA)
-After cleaning, an exploratory data analysis (EDA) was performed to identify key trends and patterns in the dataset. This included mainly:
-- Checking overall trends in layoffs over time
-- Identifying companies and industries most affected by layoffs
-- Examining geographic distribution of layoffs
-
-## Power BI visualization and key findings
-Last step in this project was to create simple dashboard in Power BI to visualize key insights. This includes charts and KPIs highlighting trends in layoffs across industries, countries, and time periods. 
+## Power BI dashboard
+The final step was creating an easy-to-understand dashboard in Power BI. It highlights key trends across industries, countries, and time periods, making the insights accessible at a glance.
 
 The repository includes a .pdf file containing a static preview of the dashboard, as well as a .pbix file for the full interactive experience.
 
@@ -39,33 +28,35 @@ Below is a quick static preview of the dashboard:
   <img src="powerbi/preview.png" alt="dashboard preview" style="width: 100%; height: auto;" />
 </p>
 
-### Layoff Trends Over Time
-The largest waves of layoffs occurred in 2020, peaking in May and July, followed by another significant wave in November. The highest peak was observed at the beginning of 2023.
-Across all three years, layoffs were most frequent in the first and last quarters, particularly in January and November.
-### Most Affected Industries
-The industries most affected by layoffs across the entire period were retail, consumer, transportation, and finance. In 2020, the transportation and travel industries were hit hardest, likely due to the COVID-19 pandemic and global lockdowns. In 2023, which saw the highest number of laid-off employees, layoffs were spread across various industries rather than concentrated in a few.
-### Companies with the Highest Layoffs
-Amazon had the highest number of layoffs in absolute terms, though this represented only 3% of its workforce.
-Many smaller companies shut down entirely, with 115 companies ceasing operations, the majority in late 2022.
-On average, 25% of employees were laid off across all analyzed companies in this period. Almost half of the analyzed companies laid off no more than 20% of their workforce, while around one-third laid off between 20-40%.
-### Company Size and Funding Stage
-Layoffs were most severe among early-stage companies (Seed) and smaller firms (Stages A-C) in terms of the number of companies affected. Larger, more financially stable companies, particularly those in the Acquired and Post-IPO stages, were less affected in terms of the proportion of employees laid off. 
-However, in absolute numbers, Post-IPO companies saw the highest total number of layoffs.
-### Geographic Distribution
-The United States experienced the highest number of layoffs, significantly more than any other country.
+## Key insights
 
-## Data Completeness and Limitations
-Some columns contained missing values:
-- 378 blanks in total_laid_off
-- 423 blanks in percentage_laid_off
+#### Timing of layoffs  
+The largest layoff waves occurred in 2020, especially in May, July, and November. Another significant peak happened early 2023. Layoffs were generally more frequent in the first and last quarters of each year, notably in January and November.
 
-While these missing values did not significantly impact major trends, they should still be considered when interpreting the results. The dataset is sourced from third-party data, meaning that additional validation or direct access to company HR records could improve accuracy in a real-world business setting.
+#### Most impacted industries  
+Retail, consumer goods, transportation, and finance sectors saw the highest layoffs overall. In 2020, transport and travel suffered most—likely due to the COVID-19 pandemic and related lockdowns. By 2023, layoffs were spread across various industries rather than concentrated.
 
-## Tools Used
-- **Microsoft SQL Server** - Data cleaning and preparation
-- **Power BI** (Desktop version) - Data visualization and dashboard creation
+#### Companies with the biggest layoffs  
+Amazon led in total layoffs, though this accounted for just 3% of its workforce. Many smaller companies ceased operations entirely — 115 shut down, mostly in late 2022. On average, about 25% of employees were laid off in the analyzed firms, with nearly half laying off no more than 20%, and roughly one-third laying off between 20-40%.
 
-## Repository Structure
+#### Company size and funding stage  
+Layoffs hit early-stage and smaller companies (Seed to Series C) the hardest in terms of number of companies affected. Larger, more established companies (Acquired and Post-IPO) laid off fewer employees proportionally, but in absolute numbers, Post-IPO companies accounted for the highest total layoffs.
+
+#### Geographical distribution  
+The United States experienced far more layoffs than any other country in the dataset.
+
+## Data limitations  
+Some missing values were present in columns:
+- `total_laid_off`: 378 missing values  
+- `percentage_laid_off`: 423 missing values  
+
+While these gaps don’t majorly affect overall trends, they should be kept in mind when interpreting the results. The data comes from third-party sources, so in a real-world scenario, further validation with company HR records would be advisable.
+
+## Tools used  
+- **Microsoft SQL Server** - for data cleaning and preparation  
+- **Power BI** - for data visualization and dashboard creation  
+
+## Repository structure  
 - `data/` - folder containing raw dataset:
   - `raw_data.csv` - source data file
 - `sql/` - folder containing SQL scripts:
@@ -75,4 +66,3 @@ While these missing values did not significantly impact major trends, they shoul
   - `dashboard.pbix` - fully interactive dashboard file
   - `dashboard.pdf` - static file for quick dashboard overview
 - `README.md` - project documentation
-
