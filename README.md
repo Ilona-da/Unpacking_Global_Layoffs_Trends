@@ -34,10 +34,10 @@ Below is a quick static preview of the dashboard:
 The largest layoff waves occurred in 2020, especially in May, July, and November. Another significant peak happened early 2023. Layoffs were generally more frequent in the first and last quarters of each year, notably in January and November.
 
 #### Most impacted industries  
-Retail, consumer goods, transportation, and finance sectors saw the highest layoffs overall. In 2020, transport and travel suffered most—likely due to the COVID-19 pandemic and related lockdowns. By 2023, layoffs were spread across various industries rather than concentrated.
+Retail, consumer goods, transportation, and finance sectors saw the highest layoffs overall. In 2020, transport and travel suffered most-likely due to the COVID-19 pandemic and related lockdowns. By 2023, layoffs were spread across various industries rather than concentrated.
 
 #### Companies with the biggest layoffs  
-Amazon led in total layoffs, though this accounted for just 3% of its workforce. Many smaller companies ceased operations entirely — 115 shut down, mostly in late 2022. On average, about 25% of employees were laid off in the analyzed firms, with nearly half laying off no more than 20%, and roughly one-third laying off between 20-40%.
+Amazon led in total layoffs, though this accounted for just 3% of its workforce. Many smaller companies ceased operations entirely - 115 shut down, mostly in late 2022. On average, about 25% of employees were laid off in the analyzed firms, with nearly half laying off no more than 20%, and roughly one-third laying off between 20-40%.
 
 #### Company size and funding stage  
 Layoffs hit early-stage and smaller companies (Seed to Series C) the hardest in terms of number of companies affected. Larger, more established companies (Acquired and Post-IPO) laid off fewer employees proportionally, but in absolute numbers, Post-IPO companies accounted for the highest total layoffs.
@@ -62,7 +62,7 @@ While these gaps don’t majorly affect overall trends, they should be kept in m
 - `sql/` - folder containing SQL scripts:
   - `data_cleaning.sql` - SQL script for data cleaning
   - `exploratory_data_analysis.sql` - SQL queries for exploratory data analysis
-- `powerbi/` – folder with Power BI dashboard file:
+- `powerbi/` - folder with Power BI dashboard file:
   - `dashboard.pbix` - fully interactive dashboard file
   - `dashboard.pdf` - static file for quick dashboard overview
 - `README.md` - project documentation
