@@ -65,4 +65,5 @@ While these gaps don’t majorly affect overall trends, they should be kept in m
 - `powerbi/` - folder with Power BI dashboard file:
   - `dashboard.pbix` - fully interactive dashboard file
   - `dashboard.pdf` - static file for quick dashboard overview
+  - `dashboard.png` - dashboard preview image
 - `README.md` - project documentation
