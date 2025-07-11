@@ -22,6 +22,8 @@ The final step was creating an easy-to-understand dashboard in Power BI. It high
 
 The repository includes a .pdf file containing a static preview of the dashboard, as well as a .pbix file for the full interactive experience.
 
+Here is [link to live dashboard](https://app.powerbi.com/view?r=eyJrIjoiYzEyYmFkMDktNzI2NS00NTgyLWEyZGQtZTVmZjU1NGYwYjQxIiwidCI6IjE1YzIyNjQ2LTU5M2YtNDMxOC04NTYzLTMwZmU5ZmRmMDdjZSJ9)
+
 Below is a quick static preview of the dashboard:
 
 <p style="text align: center; margin top: 20px; margin-bottom: 20px;">
