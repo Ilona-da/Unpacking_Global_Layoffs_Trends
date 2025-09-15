@@ -24,12 +24,6 @@ The repository includes a .pdf file containing a static preview of the dashboard
 
 Here is [link to live dashboard](https://app.powerbi.com/view?r=eyJrIjoiYzEyYmFkMDktNzI2NS00NTgyLWEyZGQtZTVmZjU1NGYwYjQxIiwidCI6IjE1YzIyNjQ2LTU5M2YtNDMxOC04NTYzLTMwZmU5ZmRmMDdjZSJ9)
 
-Below is a quick static preview of the dashboard:
-
-<p style="text align: center; margin top: 20px; margin-bottom: 20px;">
-  <img src="powerbi/preview.png" alt="dashboard preview" style="width: 100%; height: auto;" />
-</p>
-
 ## Key insights
 
 #### Timing of layoffs  
