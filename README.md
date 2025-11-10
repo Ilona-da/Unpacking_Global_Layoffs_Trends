@@ -11,22 +11,22 @@ To ensure the data was clean and reliable, I performed several preprocessing ste
 - Adjusted data types  
 - Filtered out irrelevant records  
 
+See full SQL here: [data_cleaning.sql](./sql/data_cleaning.sql)  
+
 ## Exploratory Data Analysis (SQL)  
 After cleaning, I conducted exploratory data analysis (EDA) to identify important trends and patterns, including mainly:
 - Layoff trends over time  
 - Most affected companies and industries  
 - Geographic distribution of layoffs  
 
+See full SQL here: [exploratory_data_analysis.sql](./sql/exploratory_data_analysis.sql)  
+
 ## Power BI dashboard
 The final step was creating an easy-to-understand dashboard in Power BI. It highlights key trends across industries, countries, and time periods, making the insights accessible at a glance.
 
 The repository includes a .pdf file containing a static preview of the dashboard, as well as a .pbix file for the full interactive experience.
 
-Below is a quick static preview of the dashboard:
-
-<p style="text align: center; margin top: 20px; margin-bottom: 20px;">
-  <img src="powerbi/preview.png" alt="dashboard preview" style="width: 100%; height: auto;" />
-</p>
+Here is [link to live dashboard](https://app.powerbi.com/view?r=eyJrIjoiYzEyYmFkMDktNzI2NS00NTgyLWEyZGQtZTVmZjU1NGYwYjQxIiwidCI6IjE1YzIyNjQ2LTU5M2YtNDMxOC04NTYzLTMwZmU5ZmRmMDdjZSJ9)
 
 ## Key insights
 
